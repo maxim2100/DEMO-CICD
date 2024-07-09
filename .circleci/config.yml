@@ -11,16 +11,15 @@ workflows:
 
 jobs:
   build-test-link:
-    executor:
-      name: node/default
+    executor: node/default
     steps:
       - checkout
       - run:
-        name: install dependencies
-        command: npm install
+          name: install app dependencies
+          command: npm install
       - run:
-        name: run tests
-        command: npm run test
+          name: run tests
+          command: npm run test
       - run:
-        name: run lint
-        command: npm run lint
+          name: run linter
+          command: npm run lint
