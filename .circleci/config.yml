@@ -5,20 +5,21 @@ orbs:
   node: circleci/node@5
 
 workflows:
-  - build-test-link
+  my-workflow:
+    - build-test-link
 
 jobs:
   build-test-link:
-    executor: 
+    executor:
       name: node/default
     steps:
       - checkout
       - run:
         name: install dependencies
         command: npm install
-        -run:
+      - run:
         name: run tests
         command: npm run test
-        -run:
+      - run:
         name: run lint
         command: npm run lint
