@@ -7,16 +7,16 @@ orbs:
 workflows:
   my-workflow:
     jobs:
-      - build-test-link
+      - build-test-lint
 
 jobs:
-  build-test-link:
+  build-test-lint:
     executor: node/default
     steps:
       - checkout
       - run:
           name: install app dependencies
-          command: npm install
+          command: npm install --legacy-peer-deps
       - run:
           name: run tests
           command: npm run test
